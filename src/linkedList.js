@@ -71,4 +71,25 @@ class LinkedList {
     }
     return false;
   }
+
+  find(value) {
+    let index = 0;
+    let current = this.headNode;
+    while (current !== null) {
+      if (current.value === value) return index;
+      current = current.nextNode;
+      index++;
+    }
+    return null;
+  }
+
+  toString() {
+    let current = this.headNode;
+    let result = '';
+    while (current !== null) {
+      result += `(${current.value}) ->`;
+      current = current.nextNode;
+    }
+    return result + 'null';
+  }
 }
