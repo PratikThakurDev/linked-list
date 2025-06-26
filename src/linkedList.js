@@ -49,4 +49,26 @@ class LinkedList {
     }
     return current;
   }
+
+  pop() {
+    if (!this.headNode) return;
+    if (!this.headNode.nextNode) {
+      this.headNode = null;
+      return;
+    }
+    let current = this.headNode;
+    while (current.nextNode.nextNode !== null) {
+      current = current.nextNode;
+    }
+    current.nextNode = null;
+  }
+
+  contains(value) {
+    let current = this.headNode;
+    while (current !== null) {
+      if (current.value === value) return true;
+      current = current.nextNode;
+    }
+    return false;
+  }
 }
